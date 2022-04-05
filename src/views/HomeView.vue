@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import TheWelcome from "@/components/TheWelcome.vue";
+import SubmitForm from "../components/SubmitForm/SubmitForm.vue";
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <SubmitForm />
 </template>
