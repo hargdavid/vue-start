@@ -11,14 +11,40 @@
 </template>
 
 <script lang="ts">
+import { mapMutations } from "vuex";
+
 export default {
   data() {
     return { email: "", text: 2 };
   },
   methods: {
+    ...mapMutations(["increment", "addUser"]),
     onSubmit() {
-      console.log("submitted");
-      /* console.log(form); */
+      const user = {
+        id: 1,
+        name: "David Harg",
+        username: "Bret",
+        email: this.email,
+        address: {
+          street: "Kulas Light",
+          suite: "Apt. 556",
+          city: "Gwenborough",
+          zipcode: "92998-3874",
+          geo: {
+            lat: "-37.3159",
+            lng: "81.1496",
+          },
+        },
+        phone: "1-770-736-8031 x56442",
+        website: "hildegard.org",
+        company: {
+          name: "Romaguera-Crona",
+          catchPhrase: "Multi-layered client-server neural-net",
+          bs: "harness real-time e-markets",
+        },
+      };
+
+      this.addUser(user);
     },
   },
 };

@@ -1,17 +1,30 @@
 <script setup lang="ts">
 import ProductEl from "@/components/ProductEl/ProductEl.vue";
-import type { IDataElement } from "@/types/IDataElement";
-import { defineProps } from "vue";
-
-const props = defineProps<{
-  title: string;
-  data: IDataElement[];
-}>();
+import { mapState } from "vuex";
 </script>
 
 <template>
   <h1>{{ title }}</h1>
-  <ul v-for="element in props.data" v-bind:key="element.id">
-    <ProductEl :element="element" />
+  <ul v-for="(d, key) in data" v-bind:key="key">
+    <ProductEl :element="d" />
   </ul>
 </template>
+
+<script lang="ts">
+type Props = {
+  title: string;
+};
+
+export default {
+  props: (): Props => {
+    return {
+      title: "",
+    };
+  },
+  computed: {
+    ...mapState({
+      data: "data",
+    }),
+  },
+};
+</script>

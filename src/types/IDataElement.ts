@@ -1,8 +1,23 @@
 export interface IDataElement {
-  createdAt: string;
+  id: number;
   name: string;
-  avatar: string;
-  link: string;
-  image: string;
-  id: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
 }

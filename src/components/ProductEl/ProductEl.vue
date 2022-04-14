@@ -1,21 +1,27 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { IDataElement } from "@/types/IDataElement";
-import { defineProps } from "vue";
 
-const props = defineProps<{
-  element: IDataElement;
-}>();
+type Props = {
+  element?: IDataElement;
+};
 
 const handleClick = (e: MouseEvent) => {
   e.preventDefault();
   console.log("test");
 };
+
+export default {
+  props: (): Props => {
+    return {
+      element: undefined,
+    };
+  },
+};
 </script>
 
 <template>
-  <li @click="(e) => handleClick(e)">
-    <a :href="props.element.link">
-      <p>{{ props.element.name }}</p>
-    </a>
+  <li v-if="element" @click="(e) => handleClick(e)">
+    <p>{{ element.name }}</p>
+    <a :href="`mailto:${element.email}`">{{ element.email }}</a>
   </li>
 </template>

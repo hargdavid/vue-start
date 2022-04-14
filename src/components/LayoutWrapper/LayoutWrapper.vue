@@ -24,6 +24,6 @@ export default {
       </nav>
     </div>
   </header>
-  <slot></slot>
+  <slot />
   <footer></footer>
 </template>
